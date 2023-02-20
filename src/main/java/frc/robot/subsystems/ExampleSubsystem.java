@@ -11,17 +11,11 @@ public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public ExampleSubsystem() {}
 
-  /**
-   * Example command factory method.
-   *
-   * @return a command
-   */
-  public CommandBase exampleMethodCommand() {
-    // Inline construction of command goes here.
-    // Subsystem::RunOnce implicitly requires `this` subsystem.
+  public CommandBase exampleMethodCommand(SwerveSubsystem subsystem) {
+    SwerveSubsystem ss = subsystem;
     return runOnce(
         () -> {
-          /* one-time action goes here */
+          ss.zeroHeading();
         });
   }
 
